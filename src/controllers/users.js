@@ -1,16 +1,14 @@
-
 exports.createUser = (req, res, next) => {
-               res.json({ email: "gsy@gmail.com", password: "123456" })
-               next();
-}
+  const {email, password} = req.body;
+  res.json({ email: email, password: password });
+};
 
 exports.getUser = (req, res, next) => {
-               res.json({
-                              message: 'Get all users',
-                              data: {
-                                             email: "gsy@gmail.com",
-                                             token: "asdasdsafdsf"
-                              }
-               })
-               next();
-}
+  res.json({
+    message: "Get all users",
+    data: {
+      email: "gsy@gmail.com",
+      token: "asdasdsafdsf",
+    },
+  });
+};

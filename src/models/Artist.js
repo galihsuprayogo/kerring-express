@@ -12,7 +12,7 @@ const Artist = dbConnection.define(
       allowNull: false,
       primaryKey: true,
     },
-    name: { type: DataTypes.STRING(50), field: "title" },
+    name: { type: DataTypes.STRING(50), field: "name" },
     origin: { type: DataTypes.STRING(50), field: "origin" },
     genre: { type: DataTypes.STRING(50), field: "genre" },
     label: { type: DataTypes.STRING(50), field: "label" },

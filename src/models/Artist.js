@@ -14,6 +14,8 @@ const Artist = dbConnection.define(
     },
     name: { type: DataTypes.STRING(50), field: "title" },
     origin: { type: DataTypes.STRING(50), field: "origin" },
+    genre: { type: DataTypes.STRING(50), field: "genre" },
+    label: { type: DataTypes.STRING(50), field: "label" },
     found: { type: DataTypes.STRING(10), field: "found" },
     status: { type: DataTypes.STRING(10), field: "status" },
   },

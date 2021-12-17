@@ -9,7 +9,7 @@ const authMiddleware = require("./src/middleware/authorization");
 
 app.use(cors());
 app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: true}));
 
 // app.use("/artist", authMiddleware.verifyToken, artistRoutes);
 app.use("/artist", artistRoutes);

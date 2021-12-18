@@ -12,12 +12,12 @@ const Artist = dbConnection.define(
       allowNull: false,
       primaryKey: true,
     },
-    name: { type: DataTypes.STRING(50), field: "name" },
-    origin: { type: DataTypes.STRING(50), field: "origin" },
-    genre: { type: DataTypes.STRING(50), field: "genre" },
-    label: { type: DataTypes.STRING(50), field: "label" },
-    found: { type: DataTypes.STRING(10), field: "found" },
-    status: { type: DataTypes.STRING(10), field: "status" },
+    name: { type: DataTypes.STRING(50), field: "name", allowNull: false },
+    origin: { type: DataTypes.STRING(50), field: "origin", allowNull: false },
+    genre: { type: DataTypes.STRING(50), field: "genre", allowNull: false },
+    label: { type: DataTypes.STRING(50), field: "label", allowNull: false },
+    found: { type: DataTypes.STRING(10), field: "found", allowNull: false },
+    status: { type: DataTypes.STRING(10), field: "status", allowNull: false },
   },
   { timestamps: false, tableName: "artists" }
 );

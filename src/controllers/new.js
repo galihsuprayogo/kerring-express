@@ -22,3 +22,15 @@ exports.createNew = async (req, res, next) => {
     res.status(401).send({ message: "failed" });
   }
 };
+
+exports.getAllNew = async (req, res, next) => {
+  try {
+    const news = await New.findAll({
+      order: [["date", "DESC"]],
+    });
+    res.status(200).send({ message: "get sucessfully", data: news });
+  } catch (error) {
+   console.log(error)
+    res.status(401).send({ message: "failed" });
+  }
+};

@@ -18,6 +18,8 @@ const Artist = dbConnection.define(
     label: { type: DataTypes.STRING(50), field: "label", allowNull: false },
     found: { type: DataTypes.STRING(10), field: "found", allowNull: false },
     status: { type: DataTypes.STRING(10), field: "status", allowNull: false },
+    image: { type: DataTypes.STRING(100), field: "image", allowNull: false },
+    path: { type: DataTypes.STRING(200), field: "path", allowNull: false },
   },
   { timestamps: false, tableName: "artists" }
 );

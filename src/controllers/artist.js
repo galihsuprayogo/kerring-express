@@ -1,4 +1,6 @@
 const Artist = require("../models/Artist");
+const path = require("path");
+const fs = require("fs");
 
 exports.createArtist = async (req, res, next) => {
   const { name, origin, genre, label, found, status } = req.body;
@@ -10,14 +12,20 @@ exports.createArtist = async (req, res, next) => {
       label: label,
       found: found,
       status: status,
+      image: req.file.filename,
+      path: req.file.path,
     });
-    console.log("get id artist => ", req.file);
-    // req.artistId = artist.id;
-    // next();
-    res.status(200).send({message: 'Create new artist sucessfully'});
+    res.status(200).send({ message: "Create new artist sucessfully" });
   } catch (error) {
     res.status(401).send({ message: "failed" });
   }
+};
+
+exports.deleteImage = (req, res, next) => {
+  // let dir = "../../public/images";
+  // console.log("delete path => ", req.imagePath);
+  fs.unlinkSync(req.imagePath);
+  res.status(200).send({ message: "Create new artist sucessfully" });
 };
 
 exports.getArtist = (req, res, next) => {

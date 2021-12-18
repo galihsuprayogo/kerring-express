@@ -15,10 +15,11 @@ exports.createNew = async (req, res, next) => {
       content: content,
       image: req.file.filename,
       path: req.file.path,
-      idArtist: artist.get().id,
+      artistId: artist.get().id,
     });
     res.status(200).send({ message: "Create new sucessfully" });
   } catch (error) {
+    console.log('error news ', error)
     res.status(401).send({ message: "failed" });
   }
 };
@@ -27,6 +28,11 @@ exports.getAllNew = async (req, res, next) => {
   try {
     const news = await New.findAll({
       order: [["date", "DESC"]],
+      include:{
+        model: Artist,
+        as: 'artist',
+        attributes: ["name"]
+      }
     });
     res.status(200).send({ message: "get sucessfully", data: news });
   } catch (error) {

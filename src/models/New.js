@@ -32,9 +32,9 @@ const New = dbConnection.define(
     },
     image: { type: DataTypes.STRING(100), field: "image", allowNull: false },
     path: { type: DataTypes.STRING(200), field: "path", allowNull: false },
-    idArtist: {
+    artistId: {
       type: DataTypes.UUIDV4,
-      field: "idArtist",
+      field: "artistId",
       allowNull: true,
       references: { model: Artist, key: "id" },
     },

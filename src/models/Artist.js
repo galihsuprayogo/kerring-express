@@ -1,5 +1,6 @@
 const dbConnection = require("../config/database");
 const { DataTypes } = require("sequelize");
+const New = require("../models/New");
 
 const Artist = dbConnection.define(
   "artists",
@@ -24,4 +25,6 @@ const Artist = dbConnection.define(
   { timestamps: false, tableName: "artists" }
 );
 
+Artist.hasMany(New);
+New.belongsTo(Artist);
 module.exports = Artist;

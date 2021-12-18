@@ -10,6 +10,7 @@ router.post(
   multer({ storage: storage }).single("image"),
   newController.createNew
 );
-router.post("/all", authMiddleware.verifyToken, newController.getAllNew);
+// router.post("/all", authMiddleware.verifyToken, newController.getAllNew);
+router.post("/all", newController.getAllNew);
 
 module.exports = router;

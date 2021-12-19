@@ -33,7 +33,7 @@ const New = dbConnection.define(
     read: {
       type: DataTypes.NUMBER,
       defaultValue: 0,
-      allowNull: false
+      allowNull: false,
     },
     image: { type: DataTypes.STRING(100), field: "image", allowNull: false },
     path: { type: DataTypes.STRING(200), field: "path", allowNull: false },

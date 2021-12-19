@@ -40,3 +40,38 @@ exports.getAllNew = async (req, res, next) => {
     res.status(401).send({ message: "failed" });
   }
 };
+
+exports.updateReadNew = async (req, res, next) => {
+  const {idNews} = req.body;
+ try {
+  const news = await New.findOne({
+    attributes: ["read"],
+    where: { id : idNews },
+  });
+  const newRead = news.get().read + 1;
+  await New.update({read: newRead}, {where: {
+    id: idNews
+  }})
+  res.status(200).send({ message: "update sucessfully"});
+ } catch (error) {
+  console.log(error)
+  res.status(401).send({ message: "failed" });
+ }
+}
+
+exports.getAllByRead = async (req, res, next) => {
+  try {
+    const news = await New.findAll({
+      order: [["read", "DESC"]],
+      include:{
+        model: Artist,
+        as: 'artist',
+        attributes: ["name"]
+      }
+    });
+    res.status(200).send({ message: "get sucessfully", data: news });
+  } catch (error) {
+   console.log(error)
+    res.status(401).send({ message: "failed" });
+  }
+}

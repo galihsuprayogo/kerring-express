@@ -12,5 +12,7 @@ router.post(
 );
 // router.post("/all", authMiddleware.verifyToken, newController.getAllNew);
 router.post("/all", newController.getAllNew);
+router.post("/all/read", newController.getAllByRead);
+router.post("/update/read", newController.updateReadNew);
 
 module.exports = router;
